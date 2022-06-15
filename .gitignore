@@ -1,4 +1,7 @@
 .DS_store
 node_modules
+package.json
+package-lock.json
 servidorConExpress.js
 servidorConNode.js
+clase 6~afd0d7d09c5750c7919d75f49fc968df55619cdc
