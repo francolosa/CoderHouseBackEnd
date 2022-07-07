@@ -41,7 +41,6 @@ const fs = require('fs');
             let productFind = productsPARSE.find((product) => {
                 return product.id == number
             });
-            console.log(productFind)
             return productFind;
         } catch (error) {
             console.log(error)
@@ -73,9 +72,7 @@ const fs = require('fs');
         } catch (error) {
             console.log(error)
         }
-
     }
-
     async deleteAll() {
         try {
             await fs.promises.writeFile(this.route, "");
@@ -83,6 +80,26 @@ const fs = require('fs');
         } catch (error) {
             console.log(error)
         }
+    }
+    async upDate(newProduct) {
+        let oldProduct = this.getById(newProduct.id)
+        let betaProduct = {
+            id: newProduct.id ? newProduct.id : oldProduct.id,
+            name: newProduct.name ? newProduct.name : oldProduct.name,
+            description: newProduct.description ? newProduct.description : oldProduct.description,
+            code: newProduct.code ? newProduct.code : oldProduct.code,
+            imgUrl: newProduct.imgUrl ? newProduct.imgUrl : oldProduct.imgUrl,
+            price: newProduct.price ? newProduct.price : oldProduct.price,
+            stock: newProduct.stock? newProduct.stock : oldProduct.stock
+        }
+        let productsArray = []
+        await this.deleteById(newProduct.id)
+        let productsSTRING = await fs.promises.readFile(this.route, this.encode);
+        let productsPARSE = await JSON.parse(productsSTRING)
+        productsArray.push(...productsPARSE, { ...betaProduct, updatedAt: Date.now() })
+        let productsArraySTRING = JSON.stringify(productsArray)
+        await fs.promises.writeFile(this.route, productsArraySTRING)
+        return productsArraySTRING;
     }
 }
 const products = new Products('products')

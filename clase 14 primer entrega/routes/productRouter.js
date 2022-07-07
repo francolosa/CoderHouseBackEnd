@@ -22,8 +22,8 @@ router.post('/', isAdmin, async (req, res) => {
     res.send('product posted')
 })
 router.put('/:id', isAdmin, async (req, res) => {
-    //falta este
-    res.send('product updated')
+    let response = await products.upDate(req.body)
+    res.send(response)
 })
 router.delete('/:id', isAdmin, async (req, res) => {
     await products.deleteById(req.params.id)
