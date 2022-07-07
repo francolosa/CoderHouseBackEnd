@@ -9,12 +9,12 @@ class Cart {
     async createCart() {
         let cartsSTRING = await fs.promises.readFile(this.route, this.encode);
         let cartsPARSE = await JSON.parse(cartsSTRING)
-        let cartId = (cartsPARSE[cartsPARSE.length - 1].cartId + 1)
+        let cartId = cartsPARSE[cartsPARSE.length - 1].cartId + 1
         let newCart = {
             cartId: cartId,
-            products: [{}]
+            products: []
         }
-        let newCarts = [ ...cartsPARSE, newCart]
+        let newCarts = [...cartsPARSE, newCart]
         console.log(newCarts);
         let newCartsSTRING = JSON.stringify(newCarts, this.encode)
         await fs.promises.writeFile(this.route, newCartsSTRING)
@@ -39,15 +39,18 @@ class Cart {
                 return cart.cartId != cartId
             })
 
-            let newCarts = {
+            let newCarts = [
                 ...cartsFilter,
-                cartId: cartFind.cartId,
-                products: [...cartFind.products, { ...productFind }]
-            }
+                {
+                    cartId: cartFind.cartId,
+                    products: [...cartFind.products, { ...productFind }]
+                }
+            ]
+
+            await fs.promises.writeFile(this.route, JSON.stringify(newCarts))
             return (newCarts);
         } catch (error) { console.log(error); }
     }
-
     async getById(cartId) {
         try {
             let cartSTRING = await fs.promises.readFile(this.route, this.encode);
@@ -61,7 +64,7 @@ class Cart {
             console.log(error)
         }
     }
-    async deleteById(cartId) {
+    async deleteCartById(cartId) {
         try {
             let cartSTRING = await fs.promises.readFile(this.route, this.encode);
             let cartPARSE = await JSON.parse(cartSTRING)
@@ -76,7 +79,33 @@ class Cart {
         }
 
     }
-
+    async deleteFromCart(cartId, productId) {
+        try {
+            let cartsSTRING = await fs.promises.readFile(this.route, this.encode);
+            let cartsPARSE = await JSON.parse(cartsSTRING)
+            let cartFind = cartsPARSE.find((cart) => {
+                return cart.cartId == cartId
+            });
+            let cartsFilter = cartsPARSE.filter((cart) => {
+                return cart.cartId != cartId
+            })
+            let productsFilter = cartFind.products.filter(product => {
+                return product.id != productId
+            })
+            let newCarts = [
+                ...cartsFilter,
+                {
+                    cartId: cartFind.cartId,
+                    products: [...productsFilter ]
+                }
+            ]
+            
+            await fs.promises.writeFile(this.route, JSON.stringify(newCarts))
+            return newCarts
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 const cart = new Cart('cart')
 module.exports = cart
