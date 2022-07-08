@@ -9,7 +9,7 @@ const fs = require('fs');
 
     async save(data) {
         let productsArray = []
-        let newProduct = { ...data }
+        let newProduct = { ...data, timestamp: Date.now() }
         let id;
         try {
             let productsSTRING = await fs.promises.readFile(this.route, this.encode);
@@ -26,9 +26,12 @@ const fs = require('fs');
                 console.log(`El id del producto es: ${0}`)
                 return 0;
             }
-            let productsArraySTRING = JSON.stringify(productsArray)
+            let productsSort = productsArray.sort((a, b) => {
+                return a.id - b.id 
+             })
+            let productsArraySTRING = JSON.stringify(productsSort)
             await fs.promises.writeFile(this.route, productsArraySTRING)
-            return id;
+            return productsSort;
         } catch (error) {
             console.log(error)
         }
@@ -50,10 +53,11 @@ const fs = require('fs');
     async getAll() {
         let productsSTRING = await fs.promises.readFile(this.route, this.encode);
         let productsPARSE = await JSON.parse(productsSTRING)
-
         try {
-            console.log(productsPARSE)
-            return productsPARSE;
+            let productsSort = productsPARSE.sort((a, b) => {
+               return a.id - b.id 
+            })
+            return productsSort;
         } catch (error) {
             console.log(error)
         }
@@ -66,9 +70,13 @@ const fs = require('fs');
             let productsUpdate = await productsPARSE.filter(item => {
                 return item.id != number
             })
-            let productsUpdateSTRING = JSON.stringify(productsUpdate)
+            let productsSort = productsUpdate.sort((a, b) => {
+                return a.id - b.id 
+             })
+            let productsUpdateSTRING = JSON.stringify(productsSort)
             await fs.promises.writeFile(this.route, productsUpdateSTRING)
             console.log(`Se eliminó correctamente el item con id: ${number}`)
+            return productsSort
         } catch (error) {
             console.log(error)
         }
@@ -81,25 +89,30 @@ const fs = require('fs');
             console.log(error)
         }
     }
-    async upDate(newProduct) {
-        let oldProduct = this.getById(newProduct.id)
+    async upDate(productId, newProduct) {
+        let oldProduct = await this.getById(productId)
         let betaProduct = {
-            id: newProduct.id ? newProduct.id : oldProduct.id,
+            id: oldProduct.id,
+            timestamp: oldProduct.timestamp,
             name: newProduct.name ? newProduct.name : oldProduct.name,
             description: newProduct.description ? newProduct.description : oldProduct.description,
             code: newProduct.code ? newProduct.code : oldProduct.code,
             imgUrl: newProduct.imgUrl ? newProduct.imgUrl : oldProduct.imgUrl,
             price: newProduct.price ? newProduct.price : oldProduct.price,
-            stock: newProduct.stock? newProduct.stock : oldProduct.stock
+            stock: newProduct.stock? newProduct.stock : oldProduct.stock,
+            updatedAt: Date.now()
         }
         let productsArray = []
-        await this.deleteById(newProduct.id)
+        await this.deleteById(productId)
         let productsSTRING = await fs.promises.readFile(this.route, this.encode);
         let productsPARSE = await JSON.parse(productsSTRING)
-        productsArray.push(...productsPARSE, { ...betaProduct, updatedAt: Date.now() })
-        let productsArraySTRING = JSON.stringify(productsArray)
+        productsArray.push( ...productsPARSE, {...betaProduct})
+        let productsSort = productsArray.sort((a, b) => {
+            return a.id - b.id 
+         })
+        let productsArraySTRING = JSON.stringify(productsSort)
         await fs.promises.writeFile(this.route, productsArraySTRING)
-        return productsArraySTRING;
+        return productsSort;
     }
 }
 const products = new Products('products')

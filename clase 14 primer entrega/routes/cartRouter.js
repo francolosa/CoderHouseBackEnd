@@ -19,7 +19,7 @@ router.post('/:id/products', async (req, res) => {
     let response = await cart.addToCart(req.params.id, req.body.productId)
     res.send(response)
 })
-router.get('/:id/products/:id_prod', async (req, res) => {
+router.delete('/:id/products/:id_prod', async (req, res) => {
     let response = await cart.deleteFromCart(req.params.id, req.params.id_prod)
     res.send(response)
 })

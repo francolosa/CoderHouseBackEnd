@@ -15,10 +15,12 @@ class Cart {
             products: []
         }
         let newCarts = [...cartsPARSE, newCart]
-        console.log(newCarts);
-        let newCartsSTRING = JSON.stringify(newCarts, this.encode)
+        let sortCarts = newCarts.sort((a, b) => {
+            return a.id - b.id 
+         })
+        let newCartsSTRING = JSON.stringify(sortCarts, this.encode)
         await fs.promises.writeFile(this.route, newCartsSTRING)
-        return newCartsSTRING
+        return cartId
     }
     async addToCart(cartId, productId) {
         try {
@@ -46,9 +48,11 @@ class Cart {
                     products: [...cartFind.products, { ...productFind }]
                 }
             ]
-
+            let sortCarts = newCarts.sort((a, b) => {
+                return a.id - b.id 
+             })
             await fs.promises.writeFile(this.route, JSON.stringify(newCarts))
-            return (newCarts);
+            return sortCarts;
         } catch (error) { console.log(error); }
     }
     async getById(cartId) {
@@ -58,8 +62,7 @@ class Cart {
             let cartFind = cartPARSE.find((cart) => {
                 return cart.cartId == cartId
             });
-            let cartFindJSON = JSON.stringify(cartFind)
-            return cartFindJSON;
+                return cartFind.products;
         } catch (error) {
             console.log(error)
         }
@@ -71,9 +74,13 @@ class Cart {
             let cartUpdate = await cartPARSE.filter(cart => {
                 return cart.cartId != cartId
             })
-            let cartUpdateSTRING = JSON.stringify(cartUpdate)
+            let sortCart = cartUpdate.sort((a, b) => {
+                return a.id - b.id 
+             })
+            let cartUpdateSTRING = JSON.stringify(sortCart)
             await fs.promises.writeFile(this.route, cartUpdateSTRING)
             console.log(`Se eliminó correctamente el item con id: ${cartId}`)
+            return sortCart;
         } catch (error) {
             console.log(error)
         }

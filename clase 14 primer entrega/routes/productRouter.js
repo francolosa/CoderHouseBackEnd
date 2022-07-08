@@ -18,16 +18,16 @@ router.get('/:id?', async (req, res) => {
     res.send(data);
 })
 router.post('/', isAdmin, async (req, res) => {
-    await products.save(req.body);
-    res.send('product posted')
+    let response = await products.save(req.body);
+    res.send(response)
 })
 router.put('/:id', isAdmin, async (req, res) => {
-    let response = await products.upDate(req.body)
+    let response = await products.upDate(req.params.id, req.body)
     res.send(response)
 })
 router.delete('/:id', isAdmin, async (req, res) => {
-    await products.deleteById(req.params.id)
-    res.send('product deleted')
+    let response = await products.deleteById(req.params.id)
+    res.send(response)
 })
 
 module.exports = router;
