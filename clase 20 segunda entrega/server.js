@@ -1,6 +1,6 @@
 const express = require('express');
 const productsRouter = require('./src/routes/productRouterFireBase');
-const cartRouter = require('./src/routes/cartRouterMongo');
+const cartRouter = require('./src/routes/cartRouterFireBase');
 
 const app = express();
 const PORT = 8080;

@@ -1,5 +1,5 @@
 const isAdmin = (req,res,next) => {
-    let admin = false;
+    let admin = true;
     if(admin){
         next()
     } else {
