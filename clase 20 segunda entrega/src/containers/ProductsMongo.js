@@ -1,12 +1,7 @@
-const { Product } = require('../database/models/products')
-const mongoose = require('mongoose')
+const { Product } = require('../database/config/mongo/models/products')
+const mongoose = require('../database/config/mongo/mongoose')
 
-mongoose.connect("mongodb+srv://francolosa:francolosa@cluster0.02pc012.mongodb.net/?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-
-class ProductsMongo {
+class ProductsMongoContainer {
     constructor(collectionName) {
         this.collection = collectionName
     }
@@ -44,6 +39,6 @@ class ProductsMongo {
     }
 }
 
-const productsMongo = new ProductsMongo('products')
-module.exports = productsMongo
+//const productsMongoContainer = new ProductsMongoContainer('products')
+module.exports = ProductsMongoContainer
 

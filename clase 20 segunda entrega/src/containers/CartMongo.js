@@ -1,22 +1,10 @@
-const { Cart } = require('../database/models/cart')
-const mongoose = require('mongoose')
-const cart = require('./CartFile')
-const { Product } = require('../database/models/products')
+const mongoose = require('../database/config/mongo/mongoose')
+const { Cart } = require('../database/config/mongo/models/cart')
+const { Product } = require('../database/config/mongo/models/products')
 
-mongoose.connect("mongodb+srv://francolosa:francolosa@cluster0.02pc012.mongodb.net/?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-
-class CartMongo {
+class CartMongoContainer {
     constructor(collectionName) {
         this.collection = collectionName
-    }
-
-    //      GET CART (PRODUCTS)     //
-    async getById(id) {
-        let response = await Cart.findById(id)
-        return response.products;
     }
 
     //      CREATE CART     //
@@ -82,6 +70,12 @@ class CartMongo {
         }
     }
 
+    //      GET CART (PRODUCTS)     //
+    async getById(id) {
+        let response = await Cart.findById(id)
+        return response.products;
+    }
+
     //      DELETE (PRODUCT) FROM CART     //
     async deleteFromCart(cartId, productId) {
         let cart = await Cart.findById(cartId)
@@ -101,5 +95,5 @@ class CartMongo {
 
 }
 
-const cartMongo = new CartMongo('cart')
-module.exports = cartMongo
+//const cartMongoContainer = new CartMongoContainer('cart')
+module.exports = CartMongoContainer

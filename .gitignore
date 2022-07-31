@@ -6,3 +6,5 @@ servidorConExpress.js
 servidorConNode.js
 .env
 coder-back-end-b371c-firebase-adminsdk-9kxtk-019486b5ef.json
+fireBase.js
+mongoose.js

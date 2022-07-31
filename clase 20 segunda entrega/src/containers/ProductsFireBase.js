@@ -1,14 +1,8 @@
-const admin = require("firebase-admin");
-const serviceAccount = require('../db/coder-back-end-b371c-firebase-adminsdk-9kxtk-019486b5ef.json')
-
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-})
-
+const admin = require('../database/config/firebase/fireBase')
 const db = admin.firestore();
 const products = db.collection('products')
 
-class ProductsMongo {
+class ProductsFireBaseContainer {
     constructor(collectionName) {
         this.collection = collectionName
     }
@@ -33,8 +27,8 @@ class ProductsMongo {
             ...body
         }
         let response = await products.doc().create(newProduct)
-        console.log(response);
-        return this.getById(doc().id);
+        console.log(response.id);
+    //    return response;
     }
 
     //      UPDATE PRODUCT      //
@@ -55,5 +49,5 @@ class ProductsMongo {
     }
 }
 
-const productsMongo = new ProductsMongo('products')
-module.exports = productsMongo
+//const productsMongoContainer = new ProductsMongoContainer('products')
+module.exports = ProductsFireBaseContainer

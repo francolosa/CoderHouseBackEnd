@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-class Cart {
+class CartFileContainer {
     constructor(fileName) {
         this.fileName = fileName;
-        this.route = `./data/${fileName}.txt`
+        this.route = `./database/txt/${fileName}.txt`
         this.encode = 'utf-8'
     }
     async createCart() {
@@ -114,5 +114,5 @@ class Cart {
         }
     }
 }
-const cart = new Cart('cart')
-module.exports = cart
+//const cartFileContainer = new CartFileContainer('cart')
+module.exports = CartFileContainer

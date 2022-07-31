@@ -1,19 +1,12 @@
-const admin = require("firebase-admin");
+const admin = require('../database/config/firebase/fireBase')
 const db = admin.firestore();
 const carts = db.collection('carts')
 const productsDb = db.collection('products')
 
-class ProductsMongo {
+class CartFireBaseContainer {
     constructor(collectionName) {
         this.collection = collectionName
     }
-    //      GET CART (PRODUCTS)     //
-    async getById(id) {
-        let querySnapshot = await carts.doc(id).get()
-        let doc = querySnapshot.data().products
-        return doc;
-    }
-
     //      CREATE CART      //
     async createCart(body) {
         let newCart = {
@@ -29,6 +22,7 @@ class ProductsMongo {
         let products = await this.getById(cartId)
         let querySnapshot = await productsDb.doc(productId).get()
         let newProduct = querySnapshot.data()
+        //falta chekear producto repetido (actualizar cantidad)
         products.push({
             id: productId,
             name: newProduct.name,
@@ -36,6 +30,13 @@ class ProductsMongo {
         })
         let response = await carts.doc(cartId).set({ products: products })
         return response;
+    }
+
+    //      GET CART (PRODUCTS)     //
+    async getById(id) {
+        let querySnapshot = await carts.doc(id).get()
+        let doc = querySnapshot.data().products
+        return doc;
     }
 
     //      DELETE (PRODUCT) FROM CART     //
@@ -54,5 +55,5 @@ class ProductsMongo {
 
 }
 
-const productsMongo = new ProductsMongo('products')
-module.exports = productsMongo
+//const cartFireBaseContainer = new CartFireBaseContainer('cart')
+module.exports = CartFireBaseContainer
