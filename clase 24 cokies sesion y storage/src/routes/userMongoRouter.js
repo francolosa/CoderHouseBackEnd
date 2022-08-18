@@ -6,19 +6,27 @@ const userController = require('../containers/userMongoContainer')
 
 router.get("/login", async (req, res) => {
   let response = await userController.logIn(req.body)
-  if(response == true){
-    req.session.user = req.body.username;
-    req.session.admin = true;    
+  if(response){
+    console.log(response)
+    req.session.user = response.username;
+    req.session.admin = response.admin; 
+    //res.redirect('/')
     res.send("login succes")
-  } else { res.send("login fail")}
+  } else { 
+    //res.redirect('/login')
+    res.send("login fail")
+  }
 });
 
 router.get("/logout", async (req, res) => {
     req.session.destroy()
+    //res.redirect('/')
     res.send("logout ok")
 }); 
 
 router.get("/privado", auth, (req, res) => {
+  console.log(req.session.user)
+  console.log(req.session.admin)
   res.send("si estas viendo esto es porque ya te logueaste!");
 });
 

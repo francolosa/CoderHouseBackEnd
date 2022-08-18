@@ -10,7 +10,7 @@ class UserMongoContainer {
     const { username, password } = reqbody;
     let response = await User.findOne({ username: username })
     if (response && response.password == password) {
-      return true
+      return response
     } else {
       return false
     }
