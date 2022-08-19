@@ -5,7 +5,8 @@ const userCollection = 'user';
 const UserSchema = new mongoose.Schema({
         username: { type: String, require: true, max: 20 },
         email: { type: String, require: true, max: 20 },
-        password: {type: String, require: true, max: 20 }
+        password: {type: String, require: true, max: 20 },
+        admin: {type: Boolean, require: true}
 
 })
 

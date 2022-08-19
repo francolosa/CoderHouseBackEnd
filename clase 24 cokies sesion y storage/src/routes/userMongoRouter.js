@@ -4,29 +4,38 @@ const router = Router();
 const { auth } = require("../middlewares/middlewareAuth")
 const userController = require('../containers/userMongoContainer')
 
-router.get("/login", async (req, res) => {
+router.get("/user", async (req, res) => {
+  if(req.session.user){
+    res.render("user", { username: req.session.username, admin: req.session.admin})
+  } else {
+    res.render("login")
+  }
+})
+
+router.get("/login", async(req, res) => {
+  res.render('login')
+})
+
+router.post("/login", async (req, res) => {
   let response = await userController.logIn(req.body)
   if(response){
-    console.log(response)
     req.session.user = response.username;
     req.session.admin = response.admin; 
-    //res.redirect('/')
-    res.send("login succes")
+    console.log("loged in success")
+    res.render("login", { username: response.username, admin: response.admin })
   } else { 
-    //res.redirect('/login')
-    res.send("login fail")
+    console.log("loged in failed")
+    res.render("login")
   }
 });
 
-router.get("/logout", async (req, res) => {
+router.post("/logout", async (req, res) => {
+    console.log("loged out")
     req.session.destroy()
-    //res.redirect('/')
-    res.send("logout ok")
+    res.render("login")
 }); 
 
 router.get("/privado", auth, (req, res) => {
-  console.log(req.session.user)
-  console.log(req.session.admin)
   res.send("si estas viendo esto es porque ya te logueaste!");
 });
 
