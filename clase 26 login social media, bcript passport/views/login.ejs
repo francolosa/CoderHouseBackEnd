@@ -12,6 +12,8 @@
     <% if(user = undefined){ %>
         <p>Bienvenido
             <%= user.username %> 
+            <%= user.email %> 
+
         </p>
         <form action="/api/users/logout" method="post">
             <button type="submit">logout</button>
