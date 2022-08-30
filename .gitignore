@@ -1,7 +1,5 @@
 .DS_store
 node_modules
-package.json
-package-lock.json
 servidorConExpress.js
 servidorConNode.js
 .env
