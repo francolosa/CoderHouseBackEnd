@@ -6,7 +6,7 @@ const userController = require('../containers/userMongoContainer')
 
 router.get("/user", async (req, res) => {
   if(req.session.user){
-    res.render("user", { username: req.session.username, admin: req.session.admin})
+    res.render("user", { username: req.session.username, email: req.session.email, admin: req.session.admin})
   } else {
     res.render("login")
   }
