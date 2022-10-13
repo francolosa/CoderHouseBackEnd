@@ -1,47 +1,14 @@
 2022/10/13 10:23:25 [error] 15964#3028: *1 CreateFile() "C:\nginx\nginx-1.23.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
-2022/10/13 10:56:55 [notice] 17176#5396: signal process started
-2022/10/13 10:57:12 [notice] 9916#4444: signal process started
-2022/10/13 10:57:33 [notice] 15612#3916: signal process started
-2022/10/13 11:15:55 [notice] 11500#9356: signal process started
-2022/10/13 11:15:55 [error] 11500#9356: OpenEvent("Global\ngx_reopen_12124") failed (2: The system cannot find the file specified)
-2022/10/13 11:20:01 [notice] 8600#15176: signal process started
-2022/10/13 11:25:00 [notice] 10908#544: signal process started
-2022/10/13 12:04:36 [notice] 11348#16924: signal process started
-2022/10/13 12:04:56 [error] 18572#9852: *1 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:05:12 [error] 18572#9852: *1 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:05:48 [error] 18572#9852: *1 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:06:07 [error] 18572#9852: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
-2022/10/13 12:06:09 [error] 18572#9852: *1 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8082/datos/", host: "localhost"
-2022/10/13 12:08:20 [notice] 7188#2968: signal process started
-2022/10/13 12:08:20 [error] 7188#2968: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:08:36 [error] 18572#9852: *7 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8082/datos/", host: "localhost"
-2022/10/13 12:08:38 [error] 18572#9852: *7 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
-2022/10/13 12:08:38 [error] 18572#9852: *7 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:10:43 [notice] 8632#876: signal process started
-2022/10/13 12:10:43 [error] 8632#876: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:10:50 [error] 18572#9852: *12 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:10:54 [error] 18572#9852: *12 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:11:58 [error] 18572#9852: *12 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:12:02 [error] 18572#9852: *16 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:12:03 [error] 18572#9852: *16 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:12:07 [notice] 14080#13288: signal process started
-2022/10/13 12:12:07 [error] 14080#13288: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:12:37 [notice] 9048#7544: signal process started
-2022/10/13 12:12:37 [error] 9048#7544: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:12:42 [error] 18572#9852: *16 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:13:11 [notice] 2668#5696: signal process started
-2022/10/13 12:13:11 [error] 2668#5696: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:13:14 [error] 18572#9852: *16 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:13:20 [error] 18572#9852: *16 "./NodeServer/public/index.html" is not found (3: The system cannot find the path specified), client: 127.0.0.1, server: nginx_node, request: "GET / HTTP/1.1", host: "localhost"
-2022/10/13 12:13:53 [notice] 9688#12012: signal process started
-2022/10/13 12:13:53 [error] 9688#12012: OpenEvent("Global\ngx_stop_10824") failed (5: Access is denied)
-2022/10/13 12:14:05 [notice] 4508#12016: signal process started
-2022/10/13 12:14:05 [error] 4508#12016: OpenEvent("Global\ngx_reopen_10824") failed (5: Access is denied)
-2022/10/13 12:17:43 [error] 13788#10972: *5 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
-2022/10/13 12:17:45 [error] 13788#10972: *5 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8082/datos/", host: "localhost"
-2022/10/13 12:18:29 [error] 13788#10972: *5 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8082/datos/", host: "localhost"
-2022/10/13 12:18:31 [error] 13788#10972: *5 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
-2022/10/13 12:19:10 [error] 13788#10972: *4 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8082/datos/", host: "localhost"
-2022/10/13 12:19:12 [error] 13788#10972: *4 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
-2022/10/13 12:20:22 [notice] 11064#5676: signal process started
-2022/10/13 12:20:29 [error] 11552#5940: *13 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost"
+2022/10/13 10:27:07 [error] 15964#3028: *4 CreateFile() "C:\nginx\nginx-1.23.1/html/nginx.exe -s stop" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /nginx.exe%20-s%20stop HTTP/1.1", host: "localhost"
+2022/10/13 10:53:18 [error] 15964#3028: *7 CreateFile() "C:\nginx\nginx-1.23.1/html/html/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/index.html HTTP/1.1", host: "localhost"
+2022/10/13 10:53:23 [error] 15964#3028: *7 CreateFile() "C:\nginx\nginx-1.23.1/html/html/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/index.html HTTP/1.1", host: "localhost"
+2022/10/13 14:24:52 [error] 8332#12380: *1 CreateFile() "C:\nginx\nginx-1.23.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2022/10/13 14:30:21 [error] 8332#12380: *6 CreateFile() "C:\nginx\nginx-1.23.1/html/api/randoms" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/randoms HTTP/1.1", host: "localhost"
+2022/10/13 14:30:29 [error] 8332#12380: *6 CreateFile() "C:\nginx\nginx-1.23.1/html/api/randoms" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/randoms HTTP/1.1", host: "localhost"
+2022/10/13 16:22:38 [emerg] 5992#2244: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:22:46 [emerg] 5912#10564: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:22:57 [emerg] 4208#3372: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:23:07 [emerg] 12880#11408: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:23:12 [emerg] 1168#10404: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:23:14 [emerg] 12848#3056: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/10/13 16:23:22 [emerg] 12364#7836: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
