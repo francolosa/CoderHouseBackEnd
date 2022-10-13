@@ -1,14 +1,20 @@
-2022/10/13 10:23:25 [error] 15964#3028: *1 CreateFile() "C:\nginx\nginx-1.23.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
-2022/10/13 10:27:07 [error] 15964#3028: *4 CreateFile() "C:\nginx\nginx-1.23.1/html/nginx.exe -s stop" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /nginx.exe%20-s%20stop HTTP/1.1", host: "localhost"
-2022/10/13 10:53:18 [error] 15964#3028: *7 CreateFile() "C:\nginx\nginx-1.23.1/html/html/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/index.html HTTP/1.1", host: "localhost"
-2022/10/13 10:53:23 [error] 15964#3028: *7 CreateFile() "C:\nginx\nginx-1.23.1/html/html/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/index.html HTTP/1.1", host: "localhost"
-2022/10/13 14:24:52 [error] 8332#12380: *1 CreateFile() "C:\nginx\nginx-1.23.1/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
-2022/10/13 14:30:21 [error] 8332#12380: *6 CreateFile() "C:\nginx\nginx-1.23.1/html/api/randoms" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/randoms HTTP/1.1", host: "localhost"
-2022/10/13 14:30:29 [error] 8332#12380: *6 CreateFile() "C:\nginx\nginx-1.23.1/html/api/randoms" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /api/randoms HTTP/1.1", host: "localhost"
-2022/10/13 16:22:38 [emerg] 5992#2244: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:22:46 [emerg] 5912#10564: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:22:57 [emerg] 4208#3372: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:23:07 [emerg] 12880#11408: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:23:12 [emerg] 1168#10404: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:23:14 [emerg] 12848#3056: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
-2022/10/13 16:23:22 [emerg] 12364#7836: unexpected "}" in C:\nginx\nginx-1.23.1/conf/nginx.conf:11
+2022/09/06 19:06:32 [notice] 20872#2248: signal process started
+2022/09/06 19:06:32 [error] 20872#2248: OpenEvent("Global\ngx_stop_10080") failed (5: Access is denied)
+2022/09/06 19:07:26 [notice] 4976#5028: signal process started
+2022/09/06 19:07:26 [error] 4976#5028: OpenEvent("Global\ngx_stop_10080") failed (5: Access is denied)
+2022/09/06 19:10:08 [notice] 11000#19580: signal process started
+2022/09/06 19:10:41 [notice] 16900#2480: signal process started
+2022/09/06 19:37:12 [notice] 11592#10304: signal process started
+2022/09/06 19:46:48 [notice] 20512#2796: signal process started
+2022/09/06 21:38:56 [error] 1224#2680: *46 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /datos/ HTTP/1.1", upstream: "http://127.0.0.1:8081/datos/", host: "localhost:8080"
+2022/09/06 21:40:03 [notice] 8528#9420: signal process started
+2022/09/06 21:40:25 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8082/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:27 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8083/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:29 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:40:31 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:13 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:15 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:43 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:48 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8084/api/randoms/", host: "localhost:8080"
+2022/09/06 21:41:58 [error] 18688#13388: *49 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: nginx_node, request: "GET /api/randoms/ HTTP/1.1", upstream: "http://127.0.0.1:8085/api/randoms/", host: "localhost:8080"
+2022/09/06 21:43:13 [notice] 9660#1440: signal process started
